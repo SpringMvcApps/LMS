@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
+  
+<bean id="handler" class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+<property name="mappings">
+<props>
+<prop key="/Login.htm">pvc</prop>
+<!--  <prop key="/Dashboard.htm">pvc1</prop>-->
+<prop key="AdminUtils.htm">pvc2</prop>
+</props>
+</property>
+</bean>
+<bean id="pvc" class="org.springframework.web.servlet.mvc.ParameterizableViewController">
+<property name="viewName" value="LoginPage"/>
+</bean>
+<bean id="pvc1" class="org.springframework.web.servlet.mvc.ParameterizableViewController">
+<property name="viewName" value="Dashboard"/></bean>
+<bean id="pvc2" class="org.springframework.web.servlet.mvc.ParameterizableViewController">
+<property name="viewName" value="AdminUtils"/>
+</bean>
+<bean id="invr" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+<property name="prefix" value="/WEB-INF/DynamicPages/"/>
+<property name="suffix" value=".jsp"/>
+</bean>
+<bean id="anno" class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping"></bean>
+  <context:component-scan base-package="com.lms.admin.controllers"/>
+  <context:component-scan base-package="com.lms.commons.controllers"/>
+  <context:component-scan base-package="com.lms.commons.security.controller"/>
+  <context:component-scan base-package="com.lms.appException"/>
+</beans>     

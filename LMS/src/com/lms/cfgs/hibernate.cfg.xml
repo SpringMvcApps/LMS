@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC  
+          "-//Hibernate/Hibernate Configuration DTD 5.3//EN"  
+          "http://hibernate.sourceforge.net/hibernate-configuration-5.3.dtd"> 
+<hibernate-configuration>
+<session-factory>
+<property name="connection.driver_class">org.postgresql.Driver</property>
+<property name="connection.url">jdbc:postgresql://127.0.0.1:5432/LMS</property>
+<property name="connection.username">postgres</property>
+<property name="connection.password">root</property>
+<!--  <property name="hibernate.show_sql">true</property>
+<property name="hibernate.format_sql">true</property>-->
+ <mapping class="com.lms.commons.domain.LmsMenu"/>
+  <mapping class="com.lms.commons.domain.Role"/>
+   <mapping class="com.lms.commons.domain.User"/>
+    <mapping class="com.lms.commons.domain.Status"/>
+  <mapping class="com.lms.commons.domain.MenuToRole"/> 
+  <mapping class="com.lms.admin.domain.Country"/>
+  <mapping class="com.lms.commons.domain.AddressStatus"/>
+  <mapping class="com.lms.admin.domain.State"/>
+  <mapping class="com.lms.admin.domain.Region"/>
+  <mapping class="com.lms.admin.domain.Area"/>
+  <mapping class="com.lms.admin.domain.City"/>
+  <mapping class="com.lms.admin.domain.Employee"/>
+</session-factory>
+</hibernate-configuration>
